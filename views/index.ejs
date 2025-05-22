@@ -1,6 +1,29 @@
 <%- include('partials/header') %>
   </head>
-  <body>
-    <h1><%= title %></h1>
-    <p>Welcome to <%= title %></p>
+  <body class="bg-light">
+    <div class="container my-5">
+      <h1 class="mb-4"><%= title %></h1>
+      <p class="lead">Seja bem-vindo à nossa Wiki! Aqui você encontra informações organizadas para facilitar sua navegação.</p>
+      
+      <hr />
+
+      <h2>Seções principais</h2>
+      <ul class="list-group list-group-flush mb-4">
+        <li class="list-group-item">
+          <a href="/topicos" class="text-decoration-none">Tópicos</a>
+          <p class="mb-0 text-muted small">Explore os principais tópicos organizados por categorias.</p>
+        </li>
+        <li class="list-group-item">
+          <a href="/faq" class="text-decoration-none">FAQ</a>
+          <p class="mb-0 text-muted small">Perguntas frequentes para esclarecer dúvidas comuns.</p>
+        </li>
+      </ul>
+
+      <h2>Últimas atualizações</h2>
+      <ul>
+        <li><strong>2025-05-20:</strong> Adicionada seção sobre novos recursos.</li>
+        <li><strong>2025-05-18:</strong> Atualização da página de FAQ.</li>
+        <li><strong>2025-05-15:</strong> Melhorias na navegação e layout.</li>
+      </ul>
+    </div>
 <%- include('partials/footer') %>
