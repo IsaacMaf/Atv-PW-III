@@ -1,52 +1,99 @@
 <%- include('partials/header') %>
 
-<div class="container my-5">
-  <h1 class="mb-4">Tópicos de Personagens</h1>
-  <p class="text-muted">Explore os personagens do universo criado. Clique em cada um para ver mais detalhes.</p>
+<div class="container my-4">
+  <h1 class="mb-4 text-center"><%= title %></h1>
+  <p class="text-muted text-center">Explore os personagens do universo criado. Clique em cada um para ver mais detalhes.</p>
 
-  <div class="row g-4">
-    <div class="col-md-4">
-      <div class="card h-100">
-        <img src="/images/Arc.jpeg" class="card-img-top" alt="Arc">
-        <div class="card-body">
-          <h5 class="card-title">
+  <div class="row g-4 justify-content-center">
+    <!-- Arc -->
+    <div class="col-lg-3 col-md-4 col-sm-6 d-flex justify-content-center">
+      <div class="card shadow-sm" style="max-width: 300px; width: 100%;">
+        <img src="/images/Arc.jpeg" class="card-img-top" alt="Arc" style="height: 230px; object-fit: cover;">
+        <div class="card-body text-center">
+          <h4 class="card-title mb-2">
             <a href="/topicos/arc" class="text-decoration-none">Arc</a>
-          </h5>
-          <p class="card-text text-muted small">Informações sobre o personagem Arc.</p>
-          <p class="card-text">
-            Arc é uma "criança" que uso como personagem para jogar no RPG "Sombras e Caos" criado pelo meu amigo. Basicamente, um rpg de heróis
+          </h4>
+          <p class="card-text text-muted small mb-3">
+            Arc é uma "criança" que uso como personagem para jogar no RPG "Sombras e Caos" criado pelo meu amigo. Basicamente, um RPG de heróis.
           </p>
+          <p class="mb-3">
+            <span class="badge bg-primary"><i class="bi bi-hand-thumbs-up"></i> <%= personagens[0].likes || 0 %></span>
+            <span class="badge bg-secondary"><i class="bi bi-hand-thumbs-down"></i> <%= personagens[0].dislikes || 0 %></span>
+          </p>
+          <div class="d-flex justify-content-center gap-2">
+            <form action="/topicos/like/<%= personagens[0]._id %>" method="POST">
+              <button class="btn btn-primary btn-sm" type="submit">
+                <i class="bi bi-hand-thumbs-up"></i> Curtir
+              </button>
+            </form>
+            <form action="/topicos/dislike/<%= personagens[0]._id %>" method="POST">
+              <button class="btn btn-secondary btn-sm" type="submit">
+                <i class="bi bi-hand-thumbs-down"></i> Não Curtir
+              </button>
+            </form>
+          </div>
         </div>
       </div>
     </div>
 
-    <div class="col-md-4">
-      <div class="card h-100">
-        <img src="/images/Hyro.jpeg" class="card-img-top" alt="Hyro Takashima">
-        <div class="card-body">
-          <h5 class="card-title">
+    <!-- Hyro -->
+    <div class="col-lg-3 col-md-4 col-sm-6 d-flex justify-content-center">
+      <div class="card shadow-sm" style="max-width: 300px; width: 100%;">
+        <img src="/images/Hyro.jpeg" class="card-img-top" alt="Hyro Takashima" style="height: 230px; object-fit: cover;">
+        <div class="card-body text-center">
+          <h4 class="card-title mb-2">
             <a href="/topicos/hyro" class="text-decoration-none">Hyro Takashima</a>
-          </h5>
-          <p class="card-text text-muted small">Informações sobre o personagem Hyro Takashima.</p>
-          <p class="card-text">
-            Personagem de Rpg de Demon's Trudge! Um RPG criado pelo meu irmão inspirado no jogo Demon's Trudge(óbvio) que estou fazendo junto de amigos e meu irmão também!
+          </h4>
+          <p class="card-text text-muted small mb-3">
+            Personagem de RPG de Demon's Trudge! Criado pelo meu irmão inspirado no jogo Demon's Trudge.
           </p>
+          <p class="mb-3">
+            <span class="badge bg-primary"><i class="bi bi-hand-thumbs-up"></i> <%= personagens[1].likes || 0 %></span>
+            <span class="badge bg-secondary"><i class="bi bi-hand-thumbs-down"></i> <%= personagens[1].dislikes || 0 %></span>
+          </p>
+          <div class="d-flex justify-content-center gap-2">
+            <form action="/topicos/like/<%= personagens[1]._id %>" method="POST">
+              <button class="btn btn-primary btn-sm" type="submit">
+                <i class="bi bi-hand-thumbs-up"></i> Curtir
+              </button>
+            </form>
+            <form action="/topicos/dislike/<%= personagens[1]._id %>" method="POST">
+              <button class="btn btn-secondary btn-sm" type="submit">
+                <i class="bi bi-hand-thumbs-down"></i> Não Curtir
+              </button>
+            </form>
+          </div>
         </div>
       </div>
     </div>
 
-    <div class="col-md-4">
-      <div class="card h-100">
-        <img src="/images/Hartreus.jpeg" class="card-img-top" alt="Hartreus">
-        <div class="card-body">
-          <h5 class="card-title">
+    <!-- Hartreus -->
+    <div class="col-lg-3 col-md-4 col-sm-6 d-flex justify-content-center">
+      <div class="card shadow-sm" style="max-width: 300px; width: 100%;">
+        <img src="/images/Hartreus.jpeg" class="card-img-top" alt="Hartreus" style="height: 230px; object-fit: cover;">
+        <div class="card-body text-center">
+          <h4 class="card-title mb-2">
             <a href="/topicos/hartreus" class="text-decoration-none">Hartreus</a>
-          </h5>
-          <p class="card-text text-muted small">Informações sobre o personagem Hartreus.</p>
-          <!-- Editar descrição aqui -->
-          <p class="card-text">
-            Hartreus é um personagem sem muito medo(não corajoso, só encara a morte com outros olhos) que uso e criei para jogar sessões de um RPG chamado "glory" criado por minha amiga
+          </h4>
+          <p class="card-text text-muted small mb-3">
+            Hartreus é um personagem sem muito medo (não corajoso, só encara a morte com outros olhos) criado para sessões do RPG Glory.
           </p>
+          <p class="mb-3">
+            <span class="badge bg-primary"><i class="bi bi-hand-thumbs-up"></i> <%= personagens[2].likes || 0 %></span>
+            <span class="badge bg-secondary"><i class="bi bi-hand-thumbs-down"></i> <%= personagens[2].dislikes || 0 %></span>
+          </p>
+          <div class="d-flex justify-content-center gap-2">
+            <form action="/topicos/like/<%= personagens[2]._id %>" method="POST">
+              <button class="btn btn-primary btn-sm" type="submit">
+                <i class="bi bi-hand-thumbs-up"></i> Curtir
+              </button>
+            </form>
+            <form action="/topicos/dislike/<%= personagens[2]._id %>" method="POST">
+              <button class="btn btn-secondary btn-sm" type="submit">
+                <i class="bi bi-hand-thumbs-down"></i> Não Curtir
+              </button>
+            </form>
+          </div>
         </div>
       </div>
     </div>
