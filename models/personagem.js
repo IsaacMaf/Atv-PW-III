@@ -24,4 +24,3 @@ const personagemSchema = new mongoose.Schema({
 });
 
 module.exports = mongoose.model('Personagem', personagemSchema);
-

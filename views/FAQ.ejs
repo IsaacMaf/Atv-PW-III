@@ -1,15 +1,57 @@
 <%- include('partials/Fheader') %>
 
-<h2>Perguntas Frequentes</h2>
+<div class="container mt-4">
+  <div class="row">
+    <!-- Coluna da FAQ -->
+    <div class="col-md-6">
+      <h2>Perguntas Frequentes</h2>
       <ul>
-        <li><strong>1: como posso ver seus personagens?</strong>
-        R: Na aba tópicos é possível visualizá-los </li>
-        <li><strong>2: Os links realmente funcionam?</strong>
-        R: Sim! Agora os links estão funcionais, apenas os de facebook e twitter não.</li>
-        <li><strong>3: que é RPG?</strong>
-        R: basicamente um jogo de mesa onde pessoas se reúnem para se divertir com histórias em que elas podem fazer seus personagens e interagir com os outros como se fossem os próprios.</li>
-         <li><strong>4: Ué, é só isso a descrição dos personagens?</strong>
-        R: posteriormente, pretendo montar descrições mais elaboradas e um sistema de comentários via MongoDB, aguarde!</li>
+        <li><strong>1: Como posso ver seus personagens?</strong><br>
+        R: Na aba tópicos é possível visualizá-los.</li>
+
+        <li><strong>2: Os links realmente funcionam?</strong><br>
+        R: Sim! Agora os links estão funcionais, apenas os de Facebook e Twitter não.</li>
+
+        <li><strong>3: O que é RPG?</strong><br>
+        R: Basicamente um jogo de mesa onde pessoas se reúnem para se divertir com histórias em que elas podem fazer seus personagens e interagir com os outros como se fossem os próprios.</li>
+
+        <li><strong>4: Ué, é só isso a descrição dos personagens?</strong><br>
+        R: Posteriormente, pretendo montar descrições mais elaboradas e um sistema de comentários via MongoDB. Aguarde!</li>
       </ul>
     </div>
+
+    <!-- Coluna dos Comentários -->
+    <div class="col-md-6 pb-5"> <!-- Aqui aplicamos o padding inferior -->
+      <h3>Faça sua pergunta ou responda alguma!</h3>
+      <form action="/FAQ/comentarios" method="POST">
+        <div class="mb-3">
+          <label for="nome" class="form-label">Seu nome</label>
+          <input type="text" class="form-control" id="nome" name="nome" required>
+        </div>
+        <div class="mb-3">
+          <label for="texto" class="form-label">Comentário</label>
+          <textarea class="form-control" id="texto" name="texto" rows="4" required></textarea>
+        </div>
+        <button type="submit" class="btn btn-dark">Enviar</button>
+      </form>
+
+      <!-- Comentários exibidos -->
+      <div class="mt-4">
+        <h5>Comentários recentes</h5>
+        <ul class="list-group" style="max-height: 250px; overflow-y: auto;">
+          <% if (comentarios && comentarios.length > 0) { %>
+            <% comentarios.forEach(com => { %>
+              <li class="list-group-item">
+                <strong><%= com.nome %>:</strong> <%= com.texto %>
+              </li>
+            <% }) %>
+          <% } else { %>
+            <li class="list-group-item">Nenhum comentário ainda.</li>
+          <% } %>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
 <%- include('partials/footer') %>
